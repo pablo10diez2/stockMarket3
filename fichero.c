@@ -4,93 +4,129 @@
 #include <ctype.h>
 #include "fichero.h"
 #include "programa.h"
+#include "configuracion.h"
 
-void buscarEmpresa(){
-     char linea[256];
-     FILE *file = fopen("data/stock_info.txt", "r");
-     char busqueda[32];
-     char modificado[100];
+void buscarEmpresa() {
+    char linea[256];
+    FILE *file = fopen(CONFIG_STOCK_PATH, "r");
+    if (!file) {
+        printf("No se pudo abrir el archivo de empresas.\n");
+        return;
+    }
 
-     printf("---Introduce el nombre de la empresa (primera mayúsculas): ");
-     scanf("%s", busqueda);
-     write_log("Busqueda de empresa");
+    char busqueda[32];
+    printf("---Introduce el nombre de la empresa (primera mayúscula): ");
+    fflush(stdout);
+    fflush(stdin);
+    scanf("%s", busqueda);
+    write_log("Búsqueda de empresa");
 
-     while(fgets(linea, sizeof(linea), file) != NULL){
-         char *ticker = strtok(linea, ",");
-         char *name = strtok(NULL, ",");
+    bool encontrada = false;
 
-         if(strlen(name)>strlen(busqueda)){
-             strncpy(modificado, name, strlen(busqueda));
-         }
-        if(strcmp(modificado, busqueda) == 0){
-             printf("Nombre de la empresa: %s, Ticker de la empresa: %s \n",name, ticker);
+    while (fgets(linea, sizeof(linea), file) != NULL) {
+        char *ticker = strtok(linea, ",");
+        char *nombre = strtok(NULL, "\n");
+
+        if (nombre != NULL && strncmp(nombre, busqueda, strlen(busqueda)) == 0) {
+            printf("Nombre de la empresa: %s, Ticker: %s\n", nombre, ticker);
+            fflush(stdout);
+            fflush(stdin);
+            encontrada = true;
         }
-     }
- }
+    }
 
-void añadirEmpresa(){
-    FILE *file = fopen("data/stock_info.txt","a");
-    char ticker[10];
-    char nombre[100];
-    char linea[110];
+    if (!encontrada) {
+        printf("Empresa no encontrada.\n");
+        fflush(stdout);
+        fflush(stdin);
+    }
 
-    printf("Introduce el TICKER de la empresa: ");
-    scanf("%s", ticker);
-
-    printf("Introduce el nombre de la empresa: ");
-    scanf("%s", nombre);
-
-    fprintf(file, "%s,%s", ticker, nombre);
-    write_log("Empresa añadida");
     fclose(file);
 }
 
-void eliminarEmpresa(){
+void anadirEmpresa() {
+    FILE *file = fopen(CONFIG_STOCK_PATH, "a");
+    if (!file) {
+        printf("No se pudo abrir el archivo para añadir.\n");
+        fflush(stdout);
+        fflush(stdin);
+        return;
+    }
+
+    char ticker[10];
+    char nombre[100];
+
+    printf("Introduce el TICKER de la empresa: ");
+    fflush(stdout);
+    fflush(stdin);
+    scanf("%s", ticker);
+
+    printf("Introduce el nombre de la empresa: ");
+    fflush(stdout);
+    fflush(stdin);
+    scanf("%s", nombre);
+
+    fprintf(file, "%s,%s\n", ticker, nombre);
+    fflush(stdout);
+    fflush(stdin);
+    write_log("Empresa añadida");
+
+    fclose(file);
+}
+
+void eliminarEmpresa() {
     char original[] = "data/stock_info.txt";
     char temporal[] = "data/temporal.txt";
     char tickerUsuario[10];
-    char linea[250];
+    char linea[256];
+    bool eliminado = false;
 
     FILE *ficheroOriginal = fopen(original, "r");
     FILE *ficheroTemporal = fopen(temporal, "w");
 
-    printf("Introduce el ticker de la empresa que quieres borrar: \n");
+    if (!ficheroOriginal || !ficheroTemporal) {
+        printf("Error abriendo archivos.\n");
+        fflush(stdout);
+        fflush(stdin);
+        return;
+    }
+
+    printf("Introduce el ticker de la empresa que quieres borrar: ");
+    fflush(stdout);
+    fflush(stdin);
     scanf("%s", tickerUsuario);
 
-    while(fgets(linea, 250, ficheroOriginal)){
+    while (fgets(linea, sizeof(linea), ficheroOriginal)) {
+        char lineaCopia[256];
+        strcpy(lineaCopia, linea);  // para no modificar la original al tokenizar
+
         char *tickerEmpresa = strtok(linea, ",");
 
-        if(strcmp(tickerEmpresa, tickerUsuario) != 0){
-            fputs(linea, ficheroTemporal);
-            write_log("Empresa eliminada");
-        }else{
-            printf("No disponible");
+        if (tickerEmpresa && strcmp(tickerEmpresa, tickerUsuario) != 0) {
+            fputs(lineaCopia, ficheroTemporal);
+        } else {
+            eliminado = true;
         }
     }
+
     fclose(ficheroOriginal);
     fclose(ficheroTemporal);
 
     remove(original);
     rename(temporal, original);
 
+    if (eliminado) {
+        printf("Empresa eliminada.\n");
+        fflush(stdout);
+        fflush(stdin);
+        write_log("Empresa eliminada");
+    } else {
+        printf("Empresa no encontrada.\n");
+        fflush(stdout);
+        fflush(stdin);
+    }
 }
 
-bool comprobarCredenciales(char mail[], char contraseña[]){
-    char filename[] = "data/config.txt";
-    char line[30];
-
-    FILE *file = fopen(filename, "r");
-
-    while(fgets(line, sizeof(line), file) != NULL){
-        char *uemail = strtok(line, ";");
-        char *upass = strtok(NULL, ";");
-
-        if(strcmp(uemail, mail) == 0 && strcmp(upass, contraseña) == 0){
-            fclose(file);
-            return true;
-        }
-    }
-
-    fclose(file);
-    return false;
+bool comprobarCredenciales(char mail[], char contrasena[]) {
+    return strcmp(mail, CONFIG_ADMIN_EMAIL) == 0 && strcmp(contrasena, CONFIG_ADMIN_PASS) == 0;
 }

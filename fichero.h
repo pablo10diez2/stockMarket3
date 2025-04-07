@@ -3,9 +3,9 @@
 
 void convertirMayusculas();
 void buscarEmpresa();
-void añadirEmpresa();
+void anadirEmpresa();
 void eliminarEmpresa();
-bool comprobarCredenciales();
+bool comprobarCredenciales(char mail[], char contrasena[]);
 
 #endif
 

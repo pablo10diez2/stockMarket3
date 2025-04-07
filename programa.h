@@ -3,6 +3,8 @@
 
 #include <stdbool.h>
 #include <stdio.h>
+#include "funcionesBD.h"
+#include "fichero.h"
 
 const char* get_current_time();
 void write_log(char* message);

@@ -22,3 +22,46 @@
 [2025-04-04 20:50:09] [Persona: admin@gmail.com] Busqueda de empresa
 [2025-04-04 20:50:18] [Persona: admin@gmail.com] Busqueda de empresa
 [2025-04-04 20:50:27] [Persona: admin@gmail.com] Busqueda de empresa
+[2025-04-07 21:19:52] [Persona: admin@gmail.com] Inicio de sesión
+[2025-04-07 21:29:34] [Persona: admin@gmail.com] Inicio de sesión
+[2025-04-07 21:33:15] [Persona: admin@gmail.com] Inicio de sesión
+[2025-04-07 21:36:52] [Persona: admin@gmail.com] Inicio de sesión
+[2025-04-07 21:39:28] [Persona: admin@gmail.com] Inicio de sesión
+[2025-04-07 21:39:31] [Persona: admin@gmail.com] Consulta de usuario
+[2025-04-07 21:41:44] [Persona: admin@gmail.com] Inicio de sesión
+[2025-04-07 21:41:59] [Persona: admin@gmail.com] Ver usuarios
+[2025-04-07 21:41:59] [Persona: admin@gmail.com] Ver usuarios
+[2025-04-07 21:44:42] [Persona: admin@gmail.com] Inicio de sesión
+[2025-04-07 21:44:57] [Persona: admin@gmail.com] Ver usuarios
+[2025-04-07 21:44:57] [Persona: admin@gmail.com] Ver usuarios
+[2025-04-07 21:45:18] [Persona: admin@gmail.com] Ver ordenes
+[2025-04-07 21:45:51] [Persona: admin@gmail.com] Ver monitorizaciones
+[2025-04-07 21:46:37] [Persona: admin@gmail.com] Consulta de usuario
+[2025-04-07 21:47:22] [Persona: admin@gmail.com] Contraseña actualizada
+[2025-04-07 21:47:41] [Persona: admin@gmail.com] Consulta de usuario
+[2025-04-07 21:52:07] [Persona: admin@gmail.com] Inicio de sesión
+[2025-04-07 21:55:26] [Persona: admin@gmail.com] Inicio de sesión
+[2025-04-07 21:55:34] [Persona: admin@gmail.com] Ver monitorizaciones con consultas
+[2025-04-07 22:12:56] [Persona: admin@gmail.com] Inicio de sesión
+[2025-04-07 22:13:02] [Persona: admin@gmail.com] Ver usuarios
+[2025-04-07 22:13:02] [Persona: admin@gmail.com] Ver usuarios
+[2025-04-07 22:13:11] [Persona: admin@gmail.com] Ver ordenes
+[2025-04-07 22:13:22] [Persona: admin@gmail.com] Ver monitorizaciones con consultas
+[2025-04-07 22:13:41] [Persona: admin@gmail.com] Consulta de usuario
+[2025-04-07 22:14:08] [Persona: admin@gmail.com] Contraseña actualizada
+[2025-04-07 22:14:21] [Persona: admin@gmail.com] Consulta de usuario
+[2025-04-07 22:14:46] [Persona: admin@gmail.com] Busqueda de empresa
+[2025-04-07 22:15:00] [Persona: admin@gmail.com] Busqueda de empresa
+[2025-04-07 22:15:14] [Persona: admin@gmail.com] Busqueda de empresa
+[2025-04-07 22:16:07] [Persona: admin@gmail.com] Busqueda de empresa
+[2025-04-07 22:16:18] [Persona: admin@gmail.com] Busqueda de empresa
+[2025-04-07 22:16:31] [Persona: admin@gmail.com] Busqueda de empresa
+[2025-04-07 22:18:29] [Persona: admin@gmail.com] Inicio de sesión
+[2025-04-07 22:18:36] [Persona: admin@gmail.com] Búsqueda de empresa
+[2025-04-07 22:27:04] [Persona: admin@gmail.com] Inicio de sesión
+[2025-04-07 22:27:17] [Persona: admin@gmail.com] Búsqueda de empresa
+[2025-04-07 22:29:22] [Persona: admin@gmail.com] Inicio de sesión
+[2025-04-07 22:29:41] [Persona: admin@gmail.com] Empresa añadida
+[2025-04-07 22:29:55] [Persona: admin@gmail.com] Búsqueda de empresa
+[2025-04-07 22:30:17] [Persona: admin@gmail.com] Empresa eliminada
+[2025-04-07 22:30:23] [Persona: admin@gmail.com] Búsqueda de empresa

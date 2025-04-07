@@ -1,2 +1,5 @@
-admin@gmail.com;admin1234;
-admin2@gmail.com;admin2005;
+admin_email=admin@gmail.com
+admin_pass=admin1234
+db_path=data/JP.sqlite
+log_path=data/logfile.txt
+stock_path=data/stock_info.txt
